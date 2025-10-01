@@ -1,0 +1,573 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO BASE E GLASSMORPHISM GLOBAL                */
+/* ------------------------------------------------ */
+
+body {
+    /* É NECESSÁRIO TER a imagem 'background-image.jpg' na mesma pasta. */
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 90vh; 
+    padding-bottom: 20px;
+    
+    /* GLASSMORPHISM */
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden; 
+}
+
+p, label, span {
+    color: #000;
+}
+
+/* Cabeçalho do Aplicativo (Verde Primário) */
+.app-header {
+    /* Ajustado para o verde primário consistente: #27ae60 */
+    background-color: #27ae60; 
+    color: white;
+    padding: 10px 16px; 
+    height: auto; 
+    
+    /* CONFIGURAÇÃO PARA LOGO E TÍTULO */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* NOVO: Estilo para a logo no topo do cabeçalho */
+.header-logo-top {
+    height: 80px; /* Tamanho da logo central */
+    width: auto;
+    margin-bottom: 5px; /* Espaço entre a logo e o texto do cabeçalho */
+}
+
+/* O header-logo original (se usado como ícone/botão lateral) */
+.header-logo {
+    display: none; 
+}
+
+/* Estilo do Título (REIFIPAPP) */
+.app-title {
+    color: white;
+    text-align: center;
+    font-size: 18px; 
+}
+
+.header-menu, .app-title {
+    color: white;
+}
+
+.header-menu {
+    display: none; 
+}
+
+.content {
+    padding: 16px 0;
+}
+
+.info-header {
+    text-align: center; 
+    padding: 0 16px 15px;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #000;
+}
+
+.ifpi-sari {
+    color: #27ae60;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Rodapé (Modificado para Flexbox) */
+.app-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #444; 
+    padding: 20px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para o parágrafo de texto no rodapé (Branco Sólido) */
+.app-footer p {
+    color: white; 
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 10px;
+    
+    text-shadow: none; 
+    -webkit-text-stroke-width: 0;
+}
+
+/* Contêiner dos links sociais */
+.social-links {
+    margin-bottom: 15px;
+}
+
+/* Estilo para cada ícone social */
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    margin: 0 8px;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.social-icon.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.social-icon.facebook {
+    background-color: #3b5998;
+}
+
+.social-icon.linkedin {
+    background-color: #0e76a8;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DE LISTA/MENU (Módulos e Menus)           */
+/* ------------------------------------------------ */
+
+.menu-list {
+    margin: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.menu-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 16px;
+    text-align: center;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    transition: background-color 0.2s, transform 0.1s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(3px);
+}
+
+.menu-item .icon {
+    /* Corrigido para o verde primário */
+    color: #27ae60;
+    font-size: 18px;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DE FORMULÁRIOS E INPUTS                   */
+/* ------------------------------------------------ */
+
+.login-form,
+.data-form {
+    padding: 0 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    text-align: center; 
+    margin-bottom: 15px;
+}
+
+.login-form .input-label,
+.data-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select,
+.input-field {
+    width: 100%;
+    padding: 12px 10px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus,
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #27ae60;
+    background: rgba(255, 255, 255, 0.7); 
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.3);
+}
+
+/* Estilo de Campo com Erro (Para Validação JS) */
+.error-field {
+    border-color: #c0392b !important; 
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.4); 
+}
+
+.blue-select select {
+    background-color: #27ae60;
+    color: white;
+    font-weight: 500;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DEDICADO PARA BOTÕES                      */
+/* ------------------------------------------------ */
+
+.form-action-button,
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.form-action-button span,
+.submit-button span {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.primary-button,
+.submit-button {
+    background-color: #27ae60;
+    color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.primary-button:hover,
+.submit-button:hover {
+    background-color: #1e8449;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.primary-button:active,
+.submit-button:active {
+    background-color: #27ae60;
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-button {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ticket-action-button {
+    width: 50px;
+    height: 50px;
+    background-color: #c0392b; 
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+/* *** ALTERAÇÃO REALIZADA AQUI *** */
+.ticket-action-button:hover {
+    background-color: #c0392b; /* COR MANTIDA: Agora é igual à cor base */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+/* ********************************* */
+
+/* ------------------------------------------------ */
+/* ESTILO DE CARDÁPIO E AVISOS                      */
+/* ------------------------------------------------ */
+
+/* Aviso (Box) Padrão - Mantido como o usuário forneceu */
+.notice-box {
+    text-align: center; 
+    line-height: 1.5;
+    font-size: 14px;
+    color: #000; 
+    
+    background: rgba(223, 222, 222, 0.3); 
+    
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    
+    border: 1px solid rgba(192, 57, 43, 0.5); 
+}
+
+.cardapio-info {
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+    border-radius: 4px;
+}
+
+.data-display {
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+}
+
+.ticket-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4); 
+    padding: 15px;
+    margin: 0 16px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-header {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ticket-details {
+    text-align: center; 
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #555;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DEDICADO PARA POPUP/MODAL DE FEEDBACK     */
+/* ------------------------------------------------ */
+
+/* Overlay (Fundo que escurece a tela) */
+.modal-feedback-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Escurece o fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Garante que fique acima de tudo */
+}
+
+/* Conteúdo do Modal */
+.modal-feedback-content {
+    background: rgba(255, 255, 255, 0.95); /* Quase branco sólido */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-width: 350px;
+    width: 85%;
+    text-align: center;
+    position: relative;
+    transform: scale(0.9); /* Inicia menor para a animação */
+    animation: scaleIn 0.3s ease-out forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Ícone de Confirmação/Cancelamento */
+.modal-icon-container {
+    margin-bottom: 15px;
+}
+
+#modal-icon {
+    font-size: 50px;
+    display: block;
+}
+
+.icon-success {
+    color: #27ae60; /* Verde */
+}
+
+.icon-cancel {
+    color: #c0392b; /* Vermelho */
+}
+
+/* Mensagem de texto */
+.modal-message-text {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Botão OK */
+.modal-close-button {
+    width: 100%;
+    padding: 12px;
+    /* Reutiliza o estilo de .primary-button com ajustes */
+    margin-top: 0; 
+    transition: background-color 0.2s;
+}
+
+/* Botão de Fechar (X) no canto - Opcional, mas útil */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: 300;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.modal-close-btn:hover {
+    color: #555;
+}
+
+
+/* ------------------------------------------------ */
+/* RESPONSIVIDADE (MEDIA QUERIES)                   */
+/* ------------------------------------------------ */
+
+/* Para telas maiores que 768px (tablets e desktops) */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 700px;
+        padding: 40px; 
+    }
+
+    .app-header {
+        font-size: 22px;
+    }
+
+    .info-header {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        padding: 20px 24px;
+        font-size: 18px;
+    }
+    
+    .login-form,
+    .data-form {
+        padding: 0 40px;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-field {
+        padding: 15px 12px;
+        font-size: 18px;
+    }
+
+    .form-action-button,
+    .submit-button {
+        padding: 18px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .app-container {
+        max-width: 900px;
+    }
+}

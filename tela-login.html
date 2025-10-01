@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REIFPI - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="body-glass"> 
+    <div class="app-container glass-effect"> 
+                <header class="app-header">
+            <div class="app-header">
+        <img src="topo_ifpi_angical.png" alt="Logo IFPI Angical" class="header-logo-top">
+        
+    <img src="logo.png" alt="Logo REIFPI" class="header-logo">
+    <span class="header-menu"><i class="fas fa-bars"></i></span>
+</div>
+            <span class="app-title">REIFPI - Anglcal</span>
+            <div class="header-menu"><span>&#x22EE;</span></div>
+        </header>
+
+        <main class="content">
+            <section class="notice-box">
+                <p class="ifpi-sari">IFPI - REIFPI</p>
+                <p>NOVOS HORÁRIOS PARA AGENDAMENTO DA REFEIÇÃO:</p>
+                <p>Almoço: 14:00h (dia anterior) às 09:00h (dia da refeição)</p>
+                <p>Senha inicial para alunos ingressantes:</p>
+                <p>Integrado e Técnico: <strong>matricula@caang</strong></p>
+                <p>Superior: <strong>matricula</strong></p>
+            </section>
+            
+            <form class="login-form">
+                <label for="login" class="input-label">Login *</label>
+                <input type="text" id="login" name="login" class="input-field" aria-label="Login">
+                
+                <label for="senha" class="input-label">Senha *</label>
+                <input type="password" id="senha" name="senha" class="input-field" aria-label="Senha">
+                
+                <button type="submit" class="submit-button" onclick="window.location.href='tela-modulos-acesso.html'">Entrar</button>
+            </form>
+        </main>
+                <footer class="app-footer">
+                    
+            <p>© 2025 IFPI - Campus Angical</p>
+            <p>Todos os direitos reservados</p>
+             <p>By LFF</p>
+        </footer>
+    </div>
+    <script src="script-nav.js"></script>
+</body>
+</html>

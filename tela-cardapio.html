@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REIFPI - Cardápio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body> 
+    <div class="app-container"> 
+        <header class="app-header">
+            <img src="topo_ifpi_angical.png" alt="Logo IFPI Angical" class="header-logo-top">
+            <span class="app-title">REIFPI - Angical</span>
+            <img src="logo.png" alt="Logo REIFPI" class="header-logo">
+        </header>
+
+        <main class="content">
+            <section class="info-header">
+                <p class="description">Restaurante Institucional do IFPI Angical</p>
+            </section>
+            
+            <section class="cardapio-info">
+                <p class="cardapio-title">CARDÁPIO DO DIA</p>
+                <p id="data-cardapio" style="font-weight: bold; margin-bottom: 10px;">[Data e Refeição do dia serão inseridas aqui]</p>
+                <p>Usuário: Lucas Felipe Ferreira de Sousa (Aluno)</p>
+                <p>Saldo: <strong class="red-text">R$ Ilimitado</strong></p>
+            </section>
+            
+            <button id="agendar-refeicao-btn" class="primary-button" style="display: block; margin: 15px 16px;">
+                AGENDAR REFEIÇÃO (+)
+            </button>
+            
+            <div id="ticket-box" class="ticket-box" style="display: none; margin-left: 16px; margin-right: 16px;">
+                <p id="ticket-status" class="ticket-header">Status da Reserva será exibido aqui.</p>
+                <p class="ticket-details">Seu ticket é válido somente para a data atual, no horário da janta.</p>
+                
+                <div style="display: flex; gap: 15px; margin-top: 15px;">
+                    <button id="cancelar-refeicao-btn" class="ticket-action-button" style="background-color: #c0392b;">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button id="re-agendar-refeicao-btn" class="ticket-action-button" style="background-color: #27ae60;">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="menu-list">
+                <p class="menu-title">Módulo de Solicitação do Ticket</p>
+                
+                <a href="tela-menu-conta.html" class="menu-item action-item">
+                    <span>Voltar para Minha Conta</span>
+                    <span class="icon fas fa-undo"></span>
+                </a>
+                
+                <a href="tela-login.html" class="menu-item action-item">
+                    <span>Sair do Sistema</span>
+                    <span class="icon fas fa-sign-out-alt"></span>
+                </a>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>© 2025 IFPI - Campus Angical</p>
+            <p>Todos os direitos reservados</p>
+        </footer>
+    </div>
+    
+    <div id="modal-feedback" class="modal-feedback-overlay" style="display: none;">
+        <div class="modal-feedback-content">
+            <span class="modal-close-btn">&times;</span>
+            <div class="modal-icon-container">
+                <i id="modal-icon" class="fas"></i> 
+            </div>
+            <p id="modal-message" class="modal-message-text"></p>
+            <button class="modal-close-button primary-button">OK</button>
+        </div>
+    </div>
+
+    <script src="script-nav.js"></script>
+    <script src="script-cardapio.js"></script>
+</body>
+</html>

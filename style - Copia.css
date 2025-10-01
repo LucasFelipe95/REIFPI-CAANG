@@ -1,0 +1,361 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO BASE E GLASSMORPHISM GLOBAL                */
+/* ------------------------------------------------ */
+
+/* Aplica a imagem de fundo e o estilo de tela cheia a TODOS os body */
+body {
+    /* É NECESSÁRIO TER a imagem 'background-image.jpg' na mesma pasta. */
+    background: url('background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Aplica o EFEITO GLASSMORPHISM ao contêiner principal de TODAS as telas */
+.app-container {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 90vh; 
+    padding-bottom: 20px;
+    
+    /* GLASSMORPHISM */
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden; 
+}
+
+/* Ajustes de cor de texto para garantir legibilidade no fundo desfocado */
+p, label, span {
+    color: #000;
+}
+
+/* Cabeçalho do Aplicativo (AGORA CENTRALIZADO E COM TEXTO BRANCO DESTACADO) */
+.app-header {
+    background-color: #27ae60; /* Verde Primário */
+    color: white;
+    padding: 0 16px;
+    height: 56px;
+    
+    /* --- MODIFICAÇÕES AQUI --- */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    /* --- FIM MODIFICAÇÕES --- */
+    
+    font-size: 18px;
+    font-weight: 700; /* Texto em negrito para destaque */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para destacar */
+}
+
+/* Esconde o menu de três pontos quando o título está centralizado, 
+   ou ajuste se você o tem em um elemento separado */
+.header-menu {
+    display: none; 
+}
+.app-title {
+    color: white; /* Garante que o texto do título seja branco */
+}
+/* O item .app-title está centralizado pelo justify-content: center; acima */
+
+
+.content {
+    padding: 16px 0;
+}
+
+/* Centralização do Cabeçalho de Informações */
+.info-header {
+    text-align: center; 
+    padding: 0 16px 15px;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #000;
+}
+
+.ifpi-sari {
+    color: #27ae60; /* Verde Primário */
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Rodapé */
+.app-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+    padding: 20px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DE LISTA/MENU (Módulos e Menus)           */
+/* ------------------------------------------------ */
+
+.menu-list {
+    margin: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Título do Módulo (Fundo semi-transparente) */
+.menu-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 16px;
+    text-align: center;
+}
+
+/* Itens de Menu (Ícone agora VERDE) */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    transition: background-color 0.2s, transform 0.1s;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(3px);
+}
+
+.menu-item .icon {
+    color: #27ae60; /* Ícone Verde */
+    font-size: 18px;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DE FORMULÁRIOS E INPUTS                   */
+/* ------------------------------------------------ */
+
+.login-form,
+.data-form {
+    padding: 0 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    text-align: center; 
+    margin-bottom: 15px;
+}
+
+.login-form .input-label,
+.data-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Inputs de Formulário (Foco AGORA VERDE) */
+.input-group input,
+.input-group select,
+.input-field {
+    width: 100%;
+    padding: 12px 10px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus,
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #27ae60; /* Borda de Foco Verde */
+    background: rgba(255, 255, 255, 0.7); 
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.3); /* Sombra de Foco Verde Transparente */
+}
+
+/* Select Verde Sólido */
+.blue-select select {
+    background-color: #27ae60; /* Fundo Verde Sólido */
+    color: white;
+    font-weight: 500;
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DEDICADO PARA BOTÕES                      */
+/* ------------------------------------------------ */
+
+.form-action-button,
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.form-action-button span,
+.submit-button span {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* BOTÃO PRIMÁRIO (Verde Sólido) */
+.primary-button,
+.submit-button {
+    background-color: #27ae60; /* Verde Primário */
+    color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.primary-button:hover,
+.submit-button:hover {
+    background-color: #1e8449; /* Verde mais escuro no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.primary-button:active,
+.submit-button:active {
+    background-color: #27ae60;
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* BOTÃO SECUNDÁRIO (Inalterado) */
+.secondary-button {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.secondary-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão de Ação do Ticket (Circular - Vermelho) */
+.ticket-action-button {
+    width: 50px;
+    height: 50px;
+    background-color: #c0392b; 
+    color: white;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.ticket-action-button:hover {
+    background-color: #a93226;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ------------------------------------------------ */
+/* ESTILO DE CARDÁPIO E AVISOS                      */
+/* ------------------------------------------------ */
+
+.notice-box {
+    text-align: center; 
+    line-height: 1.5;
+    font-size: 14px;
+    color: #000; 
+    background: rgba(255, 255, 255, 0.15); 
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.cardapio-info {
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+    border-radius: 4px;
+}
+
+.data-display {
+    text-align: center; 
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+}
+
+/* --- MODIFICAÇÃO ESPECÍFICA PARA TELA DE CARDÁPIO --- */
+.ticket-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4); 
+    padding: 15px;
+    margin: 0 16px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-header {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ticket-details {
+    text-align: center; 
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #555;
+}

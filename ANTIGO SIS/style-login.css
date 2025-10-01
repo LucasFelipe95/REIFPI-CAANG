@@ -1,0 +1,131 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 1. Base do Corpo com Fundo para o Glassmorphism */
+body {
+    /* É NECESSÁRIO UM FUNDO PARA O BLUR FUNCIONAR. */
+    background: url('background-image.jpg') no-repeat center center / cover; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 90vh; 
+    padding-bottom: 20px;
+
+    /* APLICAÇÃO DO GLASSMORPHISM NO CONTAINER PRINCIPAL */
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden; 
+}
+
+/* 2. Cabeçalho do Aplicativo (App Bar) */
+.app-header {
+    background-color: #3f51b5;
+    color: white;
+    padding: 0 16px;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.header-menu {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+/* 3. Conteúdo Principal e Seção de Avisos */
+.content {
+    padding: 16px;
+}
+
+.notice-box {
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-size: 14px;
+    /* Transparência sutil para combinar com o fundo desfocado */
+    color: #000; 
+    background: rgba(255, 255, 255, 0.15); 
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.ifpi-sari {
+    color: #3f51b5;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* 4. Formulário de Login */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+
+.input-label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 25px;
+    
+    /* GLASSMORPHISM NO INPUT */
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #3f51b5;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Botão Entrar */
+.submit-button {
+    background-color: #3f51b5;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #303f9f;
+}
+
+
