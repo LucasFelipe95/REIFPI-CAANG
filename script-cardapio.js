@@ -1,9 +1,5 @@
 /**
  * ARQUIVO: script-cardapio.js (Versão Simplificada "Sim/Não")
- * * Responsável por:
- * 1. Obter e exibir a data/título do cardápio (texto único).
- * 2. Gerenciar o agendamento (reserva e cancelamento).
- * 3. Controlar a exibição do Modal de Feedback (+/-).
  */
 
 // --- SELETORES DO DOM ---
@@ -24,7 +20,7 @@ const cancelarButton = document.getElementById('cancelar-refeicao-btn');
 const reagendarButton = document.getElementById('re-agendar-refeicao-btn');
 
 // Variável para guardar a data e o título da refeição que está sendo exibida/agendada
-let tituloRefeicaoExibida = ""; 
+let tituloRefeicaoExibida = "";
 
 // --- 1. FUNÇÕES DE DADOS E SIMULAÇÃO ---
 
@@ -51,18 +47,12 @@ function buscarCardapioStatus() {
 }
 
 /**
- * Determina se o agendamento está dentro do horário permitido (Ex: antes das 09:00h do dia atual).
- * @returns {boolean} True se estiver dentro do período de agendamento.
+ * Determina se o agendamento está dentro do horário permitido.
+ * ALTERAÇÃO: A função sempre retorna TRUE para permitir a reserva a qualquer hora.
+ * @returns {boolean} True (sempre).
  */
 function isHorarioDeAgendamento() {
-    const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    
-    // Limite Final: 09:00h
-    const limiteFinal = new Date(today);
-    limiteFinal.setHours(9, 0, 0, 0);
-
-    return now.getTime() < limiteFinal.getTime();
+    return true;
 }
 
 // --- 2. FUNÇÕES DE RENDERIZAÇÃO E UI ---
@@ -100,7 +90,10 @@ function hideModal() {
  */
 function renderizarTicketStatus(cardapioStatus) {
     const userHasTicket = localStorage.getItem('userTicket') === 'true';
-    const isSchedulingTime = isHorarioDeAgendamento();
+    const isSchedulingTime = isHorarioDeAgendamento(); // Agora será sempre true
+
+    // Remove classes de estilo antes de definir o novo estado
+    agendarButton.classList.remove('primary-button', 'form-action-button');
 
     // Esconde/Mostra os elementos por padrão
     agendarButton.style.display = 'none';
@@ -109,27 +102,29 @@ function renderizarTicketStatus(cardapioStatus) {
     if (userHasTicket) {
         // Usuário JÁ agendou
         ticketBox.style.display = 'flex';
-        ticketStatus.textContent = "Seu ticket está AGENDADO!"; 
+        ticketStatus.textContent = "Seu ticket está AGENDADO!";
         ticketStatus.style.color = '#27ae60';
         return;
     } 
     
     // Usuário NÃO agendou
     if (!isSchedulingTime) {
-        // Fora do horário
+        // Esta condição NUNCA será verdadeira, mas a deixamos por segurança.
         ticketBox.style.display = 'flex';
-        ticketStatus.textContent = "O período de agendamento (até 9h) está encerrado.";
+        ticketStatus.textContent = "O período de agendamento (até 14h) está encerrado."; 
         ticketStatus.style.color = '#c0392b';
         return;
     }
 
-    // Dentro do horário (antes das 9h)
+    // Dentro do horário (AGORA SEMPRE TRUE)
     switch (cardapioStatus) {
         case 'disponivel':
             agendarButton.style.display = 'block';
             agendarButton.textContent = "AGENDAR REFEIÇÃO (+)";
             agendarButton.disabled = false;
             agendarButton.style.opacity = 1;
+            // APLICANDO ESTILO: Adicionando classes de botão
+            agendarButton.classList.add('primary-button', 'form-action-button'); 
             break;
         case 'esgotado':
             agendarButton.style.display = 'block';
@@ -169,7 +164,7 @@ function cancelarRefeicao() {
     localStorage.removeItem('userTicket');
     
     const statusAtual = buscarCardapioStatus(); // Recarrega o status (deve voltar para 'disponivel')
-    renderizarTicketStatus(statusAtual.status); 
+    renderizarTicketStatus(statusAtual.status);
     
     showModal('cancel', `Você cancelou sua ${tituloRefeicaoExibida}`); // Usa o título da refeição
 }

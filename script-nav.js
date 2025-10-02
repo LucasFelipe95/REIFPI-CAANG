@@ -1,7 +1,7 @@
 /**
  * script-nav.js
  * * * UNIFICADO: Gerencia Navegação (com Validação de Campos), 
- * * Limpeza de Inputs e Lógica do Botão Cardápio (+/-).
+ * * Limpeza de Inputs.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ------------------------------------------------
-    // 2. LÓGICA DE NAVEGAÇÃO ENTRE TELAS (COM VALIDAÇÃO)
+    // 2. LÓGICA DE NAVEGAÇÃO ENTRE TELAS (COM VALIDAÇÃO) - ALTERADO
     // ------------------------------------------------
 
     const navElements = document.querySelectorAll(
@@ -71,15 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Executa a validação
                 if (form && validateFields(form)) {
+                    // --- NOVA LÓGICA DE REDIRECIONAMENTO ---
+                    let targetUrl = 'tela-modulos-acesso.html'; // Padrão: Login de Usuário
+                    
+                    // Verifica se é o formulário de login do ADM
+                    if (form.id === 'adm-login-form') {
+                        targetUrl = 'tela-modulos-acesso_adm.html'; // Redireciona para o ADM
+                    } 
+                    // Se for um formulário .data-form (como Alterar Dados), redireciona para menu-conta
+                    else if (form.classList.contains('data-form')) {
+                         targetUrl = 'tela-menu-conta.html'; 
+                    }
+                    // Se for o login normal (sem ID), mantém o padrão 'tela-modulos-acesso.html'
+                    
                     // SE A VALIDAÇÃO PASSAR, realiza a navegação.
-                    window.location.href = 'tela-modulos-acesso.html';
+                    window.location.href = targetUrl;
                 }
                 // Se a validação falhar, a navegação é bloqueada.
             });
             
         } 
         
-        // B. Links de Menu e Botões de Navegação Simples (não exigem validação)
+        // B. Links de Menu e Botões de Navegação Simples 
         else if (element.tagName === 'A' && element.getAttribute('href')) {
             element.addEventListener('click', (e) => {
                 // A navegação ocorre pelo próprio atributo href do <a>
@@ -105,34 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ------------------------------------------------
-    // 4. LÓGICA PARA O BOTÃO DO CARDÁPIO (+/-)
+    // 4. LÓGICA PARA O BOTÃO DO CARDÁPIO (+/-) - REVERSÃO
     // ------------------------------------------------
     
+    // Esta seção foi mantida na versão simplificada (sem toggle), 
+    // mas a lógica completa do ticket é controlada por script-cardapio.js.
     const ticketButton = document.querySelector('.ticket-action-button');
 
     if (ticketButton) {
-        // Estado inicial (assumindo comprado para o botão ser '-')
-        let isTicketBought = true; 
-        const COLOR_CANCEL = '#c0392b'; // Vermelho
-        const COLOR_BUY = '#27ae60';    // Verde
-        
-        const updateButtonState = () => {
-            if (isTicketBought) {
-                ticketButton.textContent = '-'; 
-                ticketButton.style.backgroundColor = COLOR_CANCEL;
-                // Lógica de backend: Registrar cancelamento/manter compra
-            } else {
-                ticketButton.textContent = '+';
-                ticketButton.style.backgroundColor = COLOR_BUY;
-                // Lógica de backend: Registrar nova compra
-            }
-        };
-
-        updateButtonState(); // Aplica o estado inicial
-
-        ticketButton.addEventListener('click', () => {
-            isTicketBought = !isTicketBought; // Alterna o estado
-            updateButtonState(); // Atualiza o visual
-        });
+        // Se a lógica do script-cardapio.js não for carregada, este bloco pode causar comportamento inesperado.
+        // É melhor confiar no script-cardapio.js para esta funcionalidade.
     }
 });
