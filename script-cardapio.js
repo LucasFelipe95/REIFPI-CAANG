@@ -120,7 +120,7 @@ function renderizarTicketStatus(cardapioStatus) {
     switch (cardapioStatus) {
         case 'disponivel':
             agendarButton.style.display = 'block';
-            agendarButton.textContent = "AGENDAR REFEIÇÃO (+)";
+            agendarButton.textContent = "AGENDAR REFEIÇÃO";
             agendarButton.disabled = false;
             agendarButton.style.opacity = 1;
             // APLICANDO ESTILO: Adicionando classes de botão
@@ -135,7 +135,7 @@ function renderizarTicketStatus(cardapioStatus) {
         case 'nao-disponivel':
         default:
             agendarButton.style.display = 'block';
-            agendarButton.textContent = "AGENDAR REFEIÇÃO (+)";
+            agendarButton.textContent = "AGENDAR REFEIÇÃO";
             agendarButton.disabled = true;
             agendarButton.style.opacity = 0.6;
             break;
