@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REIFPI - Cadastrar Janta</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="body-glass"> 
+    <div class="app-container glass-effect"> 
+        <header class="app-header">
+            <div class="app-header">
+                <img src="topo_ifpi_angical.png" alt="Logo IFPI Angical" class="header-logo-top">
+                <img src="logo.png" alt="Logo REIFPI" class="header-logo">
+                <span class="header-menu"><i class="fas fa-bars"></i></span>
+            </div>
+            <span class="app-title">ADM - Janta</span>
+            <div class="header-menu"><span>&#x22EE;</span></div>
+        </header>
+
+        <main class="content">
+            <h2 class="section-title">Cadastro de Cardápio: Janta</h2>
+            
+            <form class="data-form">
+                
+                <p class="section-title" style="margin-top: 0;">Detalhes da Refeição</p>
+
+                <label for="cardapio-janta" class="input-label">Cardápio do Dia - Janta *</label>
+                <textarea id="cardapio-janta" name="cardapio-janta" class="input-field" rows="5" placeholder="Descreva o cardápio (Prato Principal, Acompanhamentos, Salada, Sobremesa)"></textarea>
+                
+                <label for="data-janta" class="input-label">Data da Janta *</label>
+                <input type="date" id="data-janta" name="data-janta" class="input-field">
+                
+                <section class="notice-box" style="border-left: 4px solid #f39c12;">
+                    <p style="font-weight: 700; color: #d35400;">Regra de Agendamento (Usuário):</p>
+                    <p>Definido de **14h do dia anterior** até as **14h do dia da janta**.</p>
+                </section>
+
+                <button type="submit" class="form-action-button primary-button" style="margin-top: 20px;">
+                    <i class="fas fa-upload"></i> CADASTRAR JANTA
+                </button>
+            </form>
+
+            <a href="tela-adm-cadastrar-tickets.html" class="form-action-button secondary-button" style="margin-top: 10px;">
+                <i class="fas fa-undo"></i> VOLTAR
+            </a>
+
+        </main>
+        
+        <footer class="app-footer">
+            <p>© 2025 IFPI - Campus Angical</p>
+            <p>Todos os direitos reservados</p>
+            <p>By LFF</p>
+        </footer>
+    </div>
+    <script src="script-nav.js"></script>
+</body>
+</html>
